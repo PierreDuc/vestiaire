@@ -19,12 +19,13 @@ test('buy stuff', async () => {
   while (true) {
     try {
       await page.click('[data-vc-dd-action-name="pdp_buy_button"]:not(:disabled)', { timeout: 500 });
-      await page.click('[data-vc-dd-action-name="proceed_to_checkout_from_cart_modal"]:not(:disabled)', { timeout: 500 });
-      await page.waitForURL(/shop\/checkout/, { timeout: 1000 });
+      await page.click('[data-vc-dd-action-name="proceed_to_checkout_from_cart_modal"]:not(:disabled)', { timeout: 1000 });
       break;
     } catch {
       await page.reload();
     }
   }
+  await page.waitForURL(/shop\/checkout/, { timeout: 1000 });
   // await page.click('.paymentButtonsWrapper .paymentButton:not(:disabled)');
+  await new Promise((resolve) => setTimeout(resolve, 1000000));
 });
