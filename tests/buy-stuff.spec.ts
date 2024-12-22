@@ -17,7 +17,7 @@ test('buy stuff', async () => {
 
   while (true) {
     try {
-      await page.click('[data-vc-dd-action-name="pdp_buy_button"]:disabled', { timeout: 750 });
+      await page.click('[data-vc-dd-action-name="pdp_buy_button"]:not(:disabled)', { timeout: 750 });
       break;
     } catch {
       await page.reload();
